@@ -11,11 +11,11 @@ export const directions: Direction[] = [
     image: "/2025-05-01_12-44-39-removebg-preview.png",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
-  {
-    title: "Математика",
-    image: "/2025-05-01_12-45-22-removebg-preview.png",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-  },
+  // {
+  //   title: "Математика",
+  //   image: "/2025-05-01_12-45-22-removebg-preview.png",
+  //   video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  // },
   {
     title: "Біологія +\nхімія",
     image: "/2025-05-01_12-45-52-removebg-preview.png",

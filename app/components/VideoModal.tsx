@@ -24,6 +24,10 @@ export default function VideoModal({ open, onClose, videoUrl }: VideoModalProps)
           m: 0,
         }
       }}
+      sx={{
+          backdropFilter: 'blur(10px)',
+          transition: 'backdrop-filter 0.2s ease-in-out',
+      }}
     >
       <IconButton
         onClick={onClose}

@@ -1,15 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { Typography } from "@mui/material";
+import { CssBaseline, ThemeProvider, Typography } from "@mui/material";
 import { useState } from "react";
 import { directions } from "./data/directions";
 import VideoModal from "./components/VideoModal";
+import theme from "./theme";
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
+    <ThemeProvider theme={theme}>
+          <CssBaseline />
     <div className="min-h-screen p-3 container mx-auto flex flex-col">
       <div className="flex flex-col items-center gap-4 mb-2 w-full mt-3">
         <a
@@ -26,8 +29,8 @@ export default function Home() {
             priority
           />
         </a>
-        <Typography variant="h3"  align="center" gutterBottom>
-          Запрошуємо на навчання до 10 класу!
+        <Typography variant="h3"  align="center" gutterBottom fontWeight="bold" color="white">
+          Запрошуємо до 10-го класу!
         </Typography>
       </div>
 
@@ -35,7 +38,7 @@ export default function Home() {
         {directions.map((direction, index) => (
           <div
             key={index}
-            className="card basis-[300px] grow-0 shrink-0"
+            className="card basis-[375px] grow-0 shrink-0"
             onClick={() => setSelectedVideo(direction.video)}
           >
             <div className="card-media h-56">
@@ -72,5 +75,6 @@ export default function Home() {
         videoUrl={selectedVideo || ""}
       />
     </div>
+    </ThemeProvider>
   );
 }

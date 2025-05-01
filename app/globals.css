@@ -9,6 +9,9 @@
   --card-width: 300px;
   --card-width-minus: calc(-1 * var(--card-width));
   --sapphire: #0F52BA;
+  --light-blue: #4FC3F7;
+  --deep-blue: #0D47A1;
+  --sky-blue: #81D4FA;
 }
 
 @theme inline {
@@ -16,7 +19,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-manrope);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -29,10 +32,32 @@
   }
 }
 
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
-  background: var(--background);
+  background: linear-gradient(
+    -45deg,
+    var(--deep-blue),
+    var(--sapphire),
+    var(--primary),
+    var(--light-blue),
+    var(--sky-blue)
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 25s ease infinite;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
 .card {
