@@ -1,64 +1,64 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { CssBaseline, ThemeProvider, Typography } from "@mui/material";
-import { useState } from "react";
-import { directions } from "./data/directions";
-import VideoModal from "./components/VideoModal";
-import theme from "./theme";
+import Image from 'next/image';
+import { CssBaseline, ThemeProvider, Typography } from '@mui/material';
+import { useState } from 'react';
+import { directions } from './data/directions';
+import VideoModal from './components/VideoModal';
+import theme from './theme';
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
     <ThemeProvider theme={theme}>
-          <CssBaseline />
-    <div className="min-h-screen p-3 container mx-auto flex flex-col">
-      <div className="flex flex-col items-center gap-4 mb-2 w-full mt-3">
-        <a
-          href="https://www.school6kr.org.ua/public/enrollment"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full max-w-md relative aspect-[3.5/1] transition-transform hover:scale-101"
-        >
-          <Image
-            src="/logo.png"
-            alt="Maximum Logo"
-            fill
-            className="object-contain"
-            priority
-          />
-        </a>
-        <Typography variant="h3"  align="center" gutterBottom fontWeight="bold" color="white">
-          Запрошуємо до 10-го класу!
-        </Typography>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-12 max-w-[1400px] mx-auto">
-        {directions.map((direction, index) => (
-          <div
-            key={index}
-            className="card basis-[375px] grow-0 shrink-0"
-            onClick={() => setSelectedVideo(direction.video)}
+      <CssBaseline />
+      <div className="min-h-screen p-3 container mx-auto flex flex-col">
+        <div className="flex flex-col items-center gap-4 mb-2 w-full mt-3">
+          <a
+            href="https://www.school6kr.org.ua/public/enrollment"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full max-w-md relative aspect-[3.5/1] transition-transform hover:scale-101"
           >
-            <div className="card-media h-56">
-              <Image
-                src={direction.image}
-                alt={direction.title}
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-            <div className="card-content">
-              <Typography variant="h6" fontWeight="bold" className="card-title">
-                {direction.title}
-              </Typography>
-            </div>
-          </div>
-        ))}
-      </div>
+            <Image
+              src="/logo.png"
+              alt="Maximum Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </a>
+          <Typography variant="h3" align="center" gutterBottom fontWeight="bold" color="white">
+            Запрошуємо до 10-го класу!
+          </Typography>
+        </div>
 
-      {/* <div className="mt-12 text-center">
+        <div className="flex flex-wrap justify-center gap-12 max-w-[1400px] mx-auto">
+          {directions.map((direction, index) => (
+            <div
+              key={index}
+              className="card basis-[375px] grow-0 shrink-0"
+              onClick={() => setSelectedVideo(direction.video)}
+            >
+              <div className="card-media h-56">
+                <Image
+                  src={direction.image}
+                  alt={direction.title}
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="card-content">
+                <Typography variant="h6" fontWeight="bold" className="card-title">
+                  {direction.title}
+                </Typography>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="mt-12 text-center">
         <a
           href="https://www.school6kr.org.ua/public/enrollment"
           target="_blank"
@@ -69,12 +69,12 @@ export default function Home() {
         </a>
       </div> */}
 
-      <VideoModal
-        open={!!selectedVideo}
-        onClose={() => setSelectedVideo(null)}
-        videoUrl={selectedVideo || ""}
-      />
-    </div>
+        <VideoModal
+          open={!!selectedVideo}
+          onClose={() => setSelectedVideo(null)}
+          videoUrl={selectedVideo || ''}
+        />
+      </div>
     </ThemeProvider>
   );
 }
